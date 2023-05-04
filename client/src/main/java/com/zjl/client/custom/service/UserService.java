@@ -10,5 +10,5 @@ import com.baomidou.mybatisplus.extension.service.IService;
 * @createDate 2023-01-03 22:14:40
 */
 public interface UserService extends IService<User> {
-    public String saveUser(UserDto userDto);
+    String saveUser(UserDto userDto);
 }

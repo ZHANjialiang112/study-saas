@@ -1,7 +1,6 @@
 package com.zjl.client.filter;
 
 import com.zjl.client.custom.common.domain.ContextUser;
-import com.zjl.client.custom.common.domain.ContextUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.context.annotation.Configuration;
 
@@ -13,7 +12,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import static com.zjl.client.custom.common.domain.ContextUtils.CONTEXT_USER;
 
 @Configuration
 @Slf4j
@@ -41,7 +39,7 @@ public class myFilter implements Filter {
 
     @Override
     public void destroy() {
-        CONTEXT_USER.remove();
+        ContextUser.CONTEXT_USER.remove();
         Filter.super.destroy();
     }
 }
