@@ -1,9 +1,11 @@
 package com.zjl.hijpa.domain.entity;
 
+import com.vladmihalcea.hibernate.type.json.JsonStringType;
 import com.zjl.hijpa.common.model.AbstratEntity;
 import lombok.*;
 import org.hibernate.annotations.GenericGenerator;
 import org.hibernate.annotations.Type;
+import org.hibernate.annotations.TypeDef;
 
 import javax.persistence.*;
 import java.util.List;
@@ -20,6 +22,7 @@ import java.util.List;
 @AllArgsConstructor
 @Entity
 @Table(name= "customer")
+@TypeDef(name = "json", typeClass = JsonStringType.class)
 public class Customer extends AbstratEntity {
 
     @Id
@@ -42,8 +45,10 @@ public class Customer extends AbstratEntity {
     @Column(name = "email")
     private String email;
 
-    @Column(name = "test",columnDefinition = "jsonb")
-    @Type(type = "ListType")
+
+    @Column(name = "data")
+    @Type(type = "json")
+    @Convert(disableConversion = true)
     private List<String> data;
 
 }

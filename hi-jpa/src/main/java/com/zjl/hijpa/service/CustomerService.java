@@ -29,4 +29,8 @@ public class CustomerService {
                 .where(customer.address.eq("背景"))
                 .fetch();
     }
+
+    public Customer getById(String id){
+        return customerRepository.findById(id).orElse(null);
+    }
 }
